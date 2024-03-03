@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Calcular Volume</title>
+  
+  <!-- Importando o estilo do bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ </head>
+ 
+ <body bgcolor="cyan">
+     
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Facilita Metemática</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(página atual)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Fórmulas Gerais</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Calcular
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Área</a>
+          <a class="dropdown-item" href="#">Perímetro</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Outros Cálculos</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Sobre</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+
+/* Ajustar tamanho da imagem do cubo, quando passar o mause por cima */
+.img_cubo{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_cubo:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+/* Ajustar tamanho da imagem do esfera, quando passar o mause por cima */
+.img_esfera{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_esfera:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+/* Ajustar tamanho da imagem do cilindro, quando passar o mause por cima */
+.img_cilindro{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_cilindro:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+/* Ajustar tamanho da imagem do cone, quando passar o mause por cima */
+.img_cone{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_cone:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+/* Ajustar tamanho da imagem do piramide, quando passar o mause por cima */
+.img_piramide{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_piramide:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+/* Ajustar tamanho da imagem do paralelepipedo, quando passar o mause por cima */
+.img_paralelepipedo{
+   -webkit-transition: -webkit-transform .5s ease;
+   transition: transform .5s ease;
+   border: 2px solid black;
+}
+
+.img_paralelepipedo:hover{
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+</style>
+
+  <br>
+  <center>
+  <div style="width:97%;">
+  <h2 align="left">Calcular Volume...</h2>
+  <h4 align="left">Escolha a figura que deseja calcular:</h4><br>
+  
+  <a href="calcular_figura.html?tipo_calculo=cubo"><img class="img_cubo" src="img_figuras/volume_cubo.png" border="2" height="300" width="30%"></a>&nbsp;
+  <a href="calcular_figura.html?tipo_calculo=esfera"><img class="img_esfera" src="img_figuras/volume_esfera.png" border="2" height="300" width="30%"></a>&nbsp;
+  <a href="calcular_figura.html?tipo_calculo=cilindro"><img class="img_cilindro" src="img_figuras/volume_cilindro.png" border="2" height="300" width="30%"></a><br><br>
+  
+  <a href="calcular_figura.html?tipo_calculo=cone"><img class="img_cone" src="img_figuras/volume_cone.png" border="2" height="300" width="30%"></a>&nbsp;
+  <a href="calcular_figura.html?tipo_calculo=paralelepipedo"><img class="img_cone" src="img_figuras/volume_paralelepipedo.png" border="2" height="300" width="30%"></a>&nbsp;
+  <a href="calcular_figura.html?tipo_calculo=piramide"><img class="img_piramide" src="img_figuras/volume_piramide.png" border="2" height="300" width="30%"></a>
+  </div>
+  </center>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<br><br>
+ </body>
+</html>
