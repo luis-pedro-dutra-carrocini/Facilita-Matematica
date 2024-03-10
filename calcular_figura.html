@@ -26,24 +26,23 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Calcular
+          Calcular Figuras
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="escolherfiguras_volume.html">Volume</a>
-          <a class="dropdown-item" href="#">Área</a>
-          <a class="dropdown-item" href="#">Perímetro</a>
+          <a class="dropdown-item" href="escolherfiguras_volume.html">Figuras 3D</a>
+          <a class="dropdown-item" href="#">Figuras Planas</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Outros Cálculos</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Sobre</a>
       </li>
     </ul>
   </div>
 </nav>
 
+<!-- iniciando JavaScript para relaizar funções -->
 <script>
+
+/* Quando Carregar a página deve verificar qual é o tipo de figura que iremos qualcular*/
 window.onload = function () { var urlAtual = window.location.href;
 var urlClass = new URL(urlAtual);
 var tipo_calculo = urlClass.searchParams.get("tipo_calculo");
@@ -95,14 +94,36 @@ document.getElementById('volume_paralelepipedo').style.visibility = "visible";
     }
 }
 
+/* Função para verificar qual é a base da pirâmide para ver de seve mostrar o input de inserir quantidade*/
+function verfbase_piramide(){
+  var tipobase_piramide = document.getElementById('tipobase_piramide').value;
+
+  if (tipobase_piramide === "piligono_regular"){
+    document.getElementById('numerobase_piramide').style.display = "block";
+  }else{
+    document.getElementById('numerobase_piramide').style.display = "none";
+  }
+
+  if (tipobase_piramide === "retangulo"){
+    document.getElementById('divladomaior_piramide').style.display = "block";
+    document.getElementById('lblladomenor_piramide').innerHTML = "Lado Menor";
+  }else{
+    document.getElementById('divladomaior_piramide').style.display = "none";
+    document.getElementById('lblladomenor_piramide').innerHTML = "Lado";
+  }
+}
+
+/* Funções para calcular o volume, área e permetro de cada figura */
 function Cvolume_para (){
     var espessura = document.getElementById('espessura_para').value;
     var comprimento = document.getElementById('comprimento_para').value;
     var altura = document.getElementById('altura_para').value;
     var unmedida = document.getElementById('unmedida_para').value;
     
-    var resultado = (espessura*comprimento*altura);
-    var mos_resultado = resultado + " " + unmedida;
+    var volume = (espessura*comprimento*altura);
+    var area = ((espessura*comprimento)*2) + ((espessura*altura)*2) + ((comprimento*altura)*2);
+    var perimetro = ((altura*4) + (comprimento*4) + (espessura*4));
+    var mos_resultado = "Volume = " + volume + " " + unmedida + "³/  Área = " + area + " " + unmedida + "²/  Perímetro = " + perimetro + " " + unmedida;
     document.getElementById('resultado_para').innerHTML = mos_resultado;
 }
 
@@ -110,8 +131,10 @@ function Cvolume_cubo (){
     var lado = document.getElementById('lado_cubo').value;
     var unmedida = document.getElementById('unmedida_cubo').value;
     
-    var resultado = (lado*lado*lado);
-    var mos_resultado = resultado + " " + unmedida;
+    var volume = (lado*lado*lado);
+    var area = (lado*lado)*6;
+    var perimetro = lado*12;
+    var mos_resultado = "Volume = " + volume + " " + unmedida + "³/  Área = " + area + " " + unmedida + "²/  Perímetro = " + perimetro + " " + unmedida;
     document.getElementById('resultado_cubo').innerHTML = mos_resultado;
 }
 
@@ -120,9 +143,11 @@ function Cvolume_esfera (){
     var unmedida = document.getElementById('unmedida_esfera').value;
     var PI = document.getElementById('pi_esfera').value;
     
-    var resultado = ((raio*raio*raio)*PI*4)/3;
-    var resultado_arre = Number(resultado.toFixed(2));
-    var mos_resultado = "≅ " + resultado_arre.toString().replace('.', ',') + " " + unmedida;
+    var volume_bruto = ((raio*raio*raio)*PI*4)/3;
+    var volume = Number(volume_bruto.toFixed(2));
+    var area_bruta = ((raio*raio)*PI)*4;
+    var area = Number(area_bruta.toFixed(2));
+    var mos_resultado = "Volume ≅ " + volume.toString().replace('.', ',')  + " " + unmedida + "³/  Área ≅ " + area.toString().replace('.', ',') +  " " + unmedida + "²";
     document.getElementById('resultado_esfera').innerHTML = mos_resultado;
 }
 
@@ -132,9 +157,11 @@ function Cvolume_cilindro (){
     var PI = document.getElementById('pi_cilindro').value;
     var altura = document.getElementById('altura_cilindro').value;
     
-    var resultado = ((raio*raio)*PI)*altura;
-    var resultado_arre = Number(resultado.toFixed(2));
-    var mos_resultado = "≅ " + resultado_arre.toString().replace('.', ',') + " " + unmedida;
+    var volume_bruto = ((raio*raio)*PI)*altura;
+    var volume = Number(volume_bruto.toFixed(2));
+    var area_bruta = (raio+altura)*raio*PI*2;
+    var area = Number(area_bruta.toFixed(2));
+    var mos_resultado = "Volume ≅ " + volume.toString().replace('.', ',')  + " " + unmedida + "³/  Área ≅ " + area.toString().replace('.', ',') + " " + unmedida + "²";
     document.getElementById('resultado_cilindro').innerHTML = mos_resultado;
 }
 
@@ -144,9 +171,12 @@ function Cvolume_cone (){
     var PI = document.getElementById('pi_cone').value;
     var altura = document.getElementById('altura_cone').value;
     
-    var resultado = (((raio*raio)*PI)*altura)/3;
-    var resultado_arre = Number(resultado.toFixed(2));
-    var mos_resultado = "≅ " + resultado_arre.toString().replace('.', ',') + " " + unmedida;
+    var volume_bruto = (((raio*raio)*PI)*altura)/3;
+    var volume = Number(volume_bruto.toFixed(2));
+    var geratriz = Math.sqrt((raio*raio) + (altura*altura));
+    var area_bruta = (raio*raio)*PI + PI*raio*geratriz;
+    var area = Number(area_bruta.toFixed(2));
+    var mos_resultado = "Volume ≅ " + volume.toString().replace('.', ',')  + " " + unmedida + "³/  Área ≅ " + area.toString().replace('.', ',') + " " + unmedida + "²";
     document.getElementById('resultado_cone').innerHTML = mos_resultado;
 }
 
@@ -154,9 +184,57 @@ function Cvolume_piramide (){
     var lado = document.getElementById('lado_piramide').value;
     var unmedida = document.getElementById('unmedida_piramide').value;
     var altura = document.getElementById('altura_piramide').value;
+    var tipobase_piramide = document.getElementById('tipobase_piramide').value;
+
+    /* Calculando a área da base de acordo com a figura */
+    if (tipobase_piramide === "triangulo"){
+      var area_base = ((lado*lado)*Math.sqrt(3))/4;
+    }else if (tipobase_piramide === "quadrado"){
+      var area_base = lado*lado;
+    }else if (tipobase_piramide === "retangulo"){
+      var ladomaior = document.getElementById('ladomaior_piramide').value;
+      var area_base = lado*ladomaior;
+    }else if (tipobase_piramide === "pentagono"){
+      var area_base = ((((lado*lado)*5))*Math.sqrt(3))/4;
+    }else if (tipobase_piramide === "hexagono"){
+      var area_base = ((((lado*lado)*6))*Math.sqrt(3))/4;
+    }else if (tipobase_piramide === "piligono_regular"){
+      var qt_aresta = document.getElementById('qtaresta_piramide').value;
+      var area_base = ((((lado*lado)*qt_aresta))*Math.sqrt(3))/4;
+    }
+
+    /* Calculando a área lateral de acordo com a figura */
+    if (tipobase_piramide === "triangulo"){
+      var apotema = ((lado*Math.sqrt(3))/2)/2;
+      var area_lateral = ((lado*apotema)/2)*3;
+    }else if (tipobase_piramide === "quadrado"){
+      var apotema = ((lado*Math.sqrt(3))/2)/2;
+      var area_lateral = ((lado*apotema)/2)*4;
+    }else if (tipobase_piramide === "retangulo"){
+      var ladomaior = document.getElementById('ladomaior_piramide').value;
+      var apotemamaior = ((ladomaior*Math.sqrt(3))/2)/2;
+
+      var apotemamenor = ((lado*Math.sqrt(3))/2)/2;
+
+      var area_lateral = (((ladomaior*apotemamaior)/2)*2) + (((lado*apotemamenor)/2)*2);
+    }else if (tipobase_piramide === "pentagono"){
+      var apotema = ((lado*Math.sqrt(3))/2)/2;
+      var area_lateral = ((lado*apotema)/2)*5;
+    }
+    else if (tipobase_piramide === "hexagono"){
+      var apotema = ((lado*Math.sqrt(3))/2)/2;
+      var area_lateral = ((lado*apotema)/2)*6;
+    }else if (tipobase_piramide === "piligono_regular"){
+      var qt_aresta = document.getElementById('qtaresta_piramide').value;
+      var apotema = ((lado*Math.sqrt(3))/2)/2;
+      var area_lateral = ((lado*apotema)/2)*qt_aresta;
+    }
     
-    var resultado = ((lado*lado)*altura)/3;
-    var mos_resultado = resultado + " " + unmedida;
+    var volume_bruto = ((area_base)*altura)/3;
+    var volume = Number(volume_bruto.toFixed(2));
+    var area_bruta = area_base + area_lateral;
+    var area = Number(area_bruta.toFixed(2));
+    var mos_resultado = "Volume ≅ " + volume.toString().replace('.', ',')  + " " + unmedida + "³/  Área ≅ " + area.toString().replace('.', ',') + " " + unmedida + "²";
     document.getElementById('resultado_piramide').innerHTML = mos_resultado;
 }
 
@@ -168,7 +246,7 @@ function Cvolume_piramide (){
   <center>
 <div class="container">
       <div class="py-5 text-center">
-        <h2>Calcular Volume</h2>
+        <h2>Calcular Volume, Área e Perímetro</h2>
       </div>
 
       <div class="row">
@@ -242,10 +320,10 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="unmedida_cubo">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_cubo" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
                 </select>
               </div>
             </div>
@@ -254,7 +332,7 @@ function Cvolume_piramide (){
             <label style="font-size: 25px;" id="resultado_cubo"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cubo()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cubo()">Calcular</label>
           </form>
         </div>
         
@@ -282,10 +360,10 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="unmedida_esfera">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_esfera" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
                 </select>
               </div>
             </div>
@@ -294,7 +372,7 @@ function Cvolume_piramide (){
             <label style="font-size: 25px;" id="resultado_esfera"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_esfera()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_esfera()">Calcular</label>
           </form>
         </div>
         
@@ -328,10 +406,10 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="unmedida_cilindro">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_cilindro" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
                 </select>
               </div>
             </div>
@@ -340,7 +418,7 @@ function Cvolume_piramide (){
             <label style="font-size: 25px;" id="resultado_cilindro"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cilindro()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cilindro()">Calcular</label>
           </form>
         </div>
         
@@ -374,10 +452,10 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="unmedida_cone">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_cone" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
                 </select>
               </div>
             </div>
@@ -386,7 +464,7 @@ function Cvolume_piramide (){
             <label style="font-size: 25px;" id="resultado_cone"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cone()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cone()">Calcular</label>
           </form>
         </div>
         
@@ -396,14 +474,21 @@ function Cvolume_piramide (){
           <form class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="raio_cone">Lado</label>
+                <label for="lado_piramide" id="lblladomenor_piramide">Lado</label>
                 <input type="number" class="form-control" id="lado_piramide" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir.
                 </div>
               </div>
+              <div class="col-md-3 mb-3" style="display: none;" id="divladomaior_piramide">
+                <label for="ladomaior_piramide">Lado Maior</label>
+                <input type="number" class="form-control" id="ladomaior_piramide" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
               <div class="col-md-3 mb-3">
-                <label for="altura_cone">Altura</label>
+                <label for="altura_piramide">Altura</label>
                 <input type="number" class="form-control" id="altura_piramide" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir.
@@ -413,19 +498,36 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="unmedida_piramide">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_piramide" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="tipobase_piramide">Base</label>
+                <select class="custom-select d-block w-100" id="tipobase_piramide" onchange="verfbase_piramide()" required>
+                  <option value="triangulo">Triângulo Equilátero</option>
+                  <option value="quadrado">Quadrado</option>
+                  <option value="retangulo">Retângulo</option>
+                  <option value="pentagono">Pentágono Regular</option>
+                  <option value="hexagono">Hexágono Regular</option>
+                  <option value="piligono_regular">Polígono Regular</option>
                 </select>
               </div>
             </div>
             <br>
+        
+            <div class="col-md-3 mb-3" style="display: none;" id="numerobase_piramide">
+                <label for="qtaresta_piramide">N° Arestas (Base)</label>
+                <input type="number" class="form-control" id="qtaresta_piramide" placeholder="" value="" required>
+            </div>
             
             <label style="font-size: 25px;" id="resultado_piramide"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_piramide()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_piramide()">Calcular</label>
           </form>
         </div>
         
@@ -459,10 +561,10 @@ function Cvolume_piramide (){
               <div class="col-md-3 mb-3">
                 <label for="estado">Medida</label>
                 <select class="custom-select d-block w-100" id="unmedida_para" required>
-                  <option value="Km³">Quilômetros (Km)</option>
-                  <option value="M³">Metros (M)</option>
-                  <option value="Cm³">Centímetros (Cm)</option>
-                  <option value="mm³">Milímetros (mm)</option>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
                 </select>
               </div>
             </div>
@@ -471,7 +573,7 @@ function Cvolume_piramide (){
             <label style="font-size: 25px;" id="resultado_para"></label>
             
             <hr class="mb-4">
-            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_para()">Calcular Volume</label>
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_para()">Calcular</label>
           </form>
         </div>
         
