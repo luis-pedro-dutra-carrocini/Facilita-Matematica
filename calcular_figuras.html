@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Calcular Figura 3D</title>
+  
+  <!-- Importando o estilo do bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+  <!-- Inserindo um icone na aba da página -->
+  <link rel="icon" href="img_site/icone_calculadora-sf.png" type="image/png">
+
+  <!-- Incluindo arquivos CSS e JS-->
+  <link rel="stylesheet"  href="style.css">
+  <script src="script.js"></script>
+ </head>
+ 
+ <body class="body-calfig" onLoad="verfigvol_escolhida();">
+     
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#" id='a-logo'><img id='logo_fm' src="img_site/logo_fm-sf.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon" style="color: #c7d1e9;"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html" id='a-menu'>Home <span class="sr-only">(página atual)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id='a-menu' href="#">Fórmulas Gerais</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id='a-menu' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Calcular Figuras
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="escolherfiguras_volume.html" id='a-menu-cbo'>Figuras 3D</a>
+          <a class="dropdown-item" href="escolherfiguras_planas.html" id='a-menu-cbo'>Figuras Planas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" id='a-menu-cbo'>Outros Cálculos</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" id='a-menu'>Desenvolvedor</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+  </div>
+</nav>
+  <br>
+
+  <center>
+<div class="container" style='background-color: #FFFAFA; border-radius: 15px;'>
+      <div class="py-5 text-center">
+        <h2>Calcular Dados da Figura</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Outras opções</span>
+            <span class="badge badge-secondary badge-pill">11</span>
+          </h4>
+          <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #6C757D;">
+              <div style='align-items: center; width: 100%;'>
+                <h6 class="my-0"><font color="white">Figuras 3D</font></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cubo"><font color="black">Cubos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=paralelepipedo"><font color="black">Paralelepipedos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=esfera"><font color="black">Esferas</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cone"><font color="black">Cones</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=piramide"><font color="black">Pirâmides</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cilindro"><font color="black">Cilíndros</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=prisma"><font color="black">Prismas</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #6C757D;">
+              <div style='align-items: center; width: 100%;'>
+                <h6 class="my-0"><font color="white">Figuras Planas</font></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=quadrado"><font color="black">Quadrados</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=retangulo"><font color="black">Retângulos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=circulo"><font color="black">Círculo</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=triangulo"><font color="black">Triângulos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=losangulo"><font color="black">Losângulos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=poligono"><font color="black">Polígonos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=paralelogramo"><font color="black">Paralelogramos</font></a></h6>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=trapezio"><font color="black">Trapésios</font></a></h6>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Calcular Cubo -->
+        <div class="col-md-8 order-md-1" id="volume_cubo">
+          <h4 class="mb-3">Dados do Cubo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row" align='center'>
+              <div class="col-md-3 mb-3">
+                <label for="lado_cubo">Lado</label>
+                <input type="number" class="form-control" id="lado_cubo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_cubo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_cubo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            
+            <img src='img_figuras/cubocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_cubo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cubo()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Esfera -->
+        <div class="col-md-8 order-md-1" id="volume_esfera">
+          <h4 class="mb-3">Dados da Esfera</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="raio_esfera">Raio</label>
+                <input type="number" class="form-control" id="raio_esfera" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="pi_esfera">Val. ≅ de π</label>
+                <input type="number" class="form-control" id="pi_esfera" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_esfera">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_esfera" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            
+            <img src='img_figuras/esferacal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_esfera"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_esfera()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Cilindro -->
+        <div class="col-md-8 order-md-1" id="volume_cilindro">
+          <h4 class="mb-3">Dados do Cilíndro</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="raio_cilindro">Raio</label>
+                <input type="number" class="form-control" id="raio_cilindro" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="altura_cilindro">Altura</label>
+                <input type="number" class="form-control" id="altura_cilindro" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="pi_cilindro">Val. ≅ de π</label>
+                <input type="number" class="form-control" id="pi_cilindro" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_cilindro">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_cilindro" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            
+            <img src='img_figuras/cilindrocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_cilindro"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cilindro()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Cone -->
+        <div class="col-md-8 order-md-1" id="volume_cone">
+          <h4 class="mb-3">Dados do Cone</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="raio_cone">Raio</label>
+                <input type="number" class="form-control" id="raio_cone" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="altura_cone">Altura</label>
+                <input type="number" class="form-control" id="altura_cone" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="pi_cone">Val. ≅ de π</label>
+                <input type="number" class="form-control" id="pi_cone" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_cone">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_cone" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            
+            <img src='img_figuras/conecal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_cone"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cone()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Priramide -->
+        <div class="col-md-8 order-md-1" id="volume_piramide">
+          <h4 class="mb-3">Dados da Pirâmide</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="lado_piramide" id="lblladomenor_piramide">Lado</label>
+                <input type="number" class="form-control" id="lado_piramide" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3" style="display: none;" id="divladomaior_piramide">
+                <label for="ladomaior_piramide">Lado Maior</label>
+                <input type="number" class="form-control" id="ladomaior_piramide" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="altura_piramide">Altura</label>
+                <input type="number" class="form-control" id="altura_piramide" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_piramide">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_piramide" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="tipobase_piramide">Base</label>
+                <select class="custom-select d-block w-100" id="tipobase_piramide" onchange="verfbase_piramide()" required>
+                  <option value="triangulo">Triângulo Equilátero</option>
+                  <option value="quadrado">Quadrado</option>
+                  <option value="retangulo">Retângulo</option>
+                  <option value="pentagono">Pentágono Regular</option>
+                  <option value="hexagono">Hexágono Regular</option>
+                  <option value="piligono_regular">Polígono Regular</option>
+                </select>
+              </div>
+            </div>
+            <br>
+        
+            <div class="col-md-3 mb-3" style="display: none;" id="numerobase_piramide">
+                <label for="qtaresta_piramide">N° Arestas (Base)</label>
+                <input type="number" class="form-control" id="qtaresta_piramide" placeholder="" value="" required>
+            </div>
+            
+            <img src='img_figuras/piramidecal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_piramide"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_piramide()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Paralelepipedo -->
+        <div class="col-md-8 order-md-1" id="volume_paralelepipedo">
+          <h4 class="mb-3">Dados do Paralelepipedo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="comprimento_para">Comprimento</label>
+                <input type="number" class="form-control" id="comprimento_para" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="altura_para">Altura</label>
+                <input type="number" class="form-control" id="altura_para" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="espessura_para">Espessura</label>
+                <input type="number" class="form-control" id="espessura_para" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_para">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_para" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            
+            <img src='img_figuras/paracal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_para"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_para()">Calcular</label>
+          </form>
+        </div>
+        
+        <!-- Calcular Prisma -->
+        <div class="col-md-8 order-md-1" id="volume_prisma">
+          <h4 class="mb-3">Dados do Prisma</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="altura_prisma">Altura</label>
+                <input type="number" class="form-control" id="altura_prisma" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="lado_prisma">Lado (Base)</label>
+                <input type="number" class="form-control" id="lado_prisma" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="tipo_prisma">Tipo</label>
+                <select class="custom-select d-block w-100" id="tipo_prisma" onchange="verfbase_prisma()" required>
+                  <option value="triangular">Triangular Equilatero</option>
+                  <option value="pentagonal">Pentagonal</option>
+                  <option value="hexagonal">Hexagonal</option>
+                  <option value="heptagonal">Heptagonal</option>
+                  <option value="octagonal">Octagonal</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_prisma">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_prisma" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="col-md-3 mb-3" style="display: none;" id="numerobase_prisma">
+                <label for="qtaresta_prisma">N° Arestas (Base)</label>
+                <input type="number" class="form-control" id="qtaresta_prisma" placeholder="" value="" required>
+            </div>
+            <br>
+            
+            <img src='img_figuras/prismacal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_prisma"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_prisma()">Calcular</label>
+          </form>
+        </div>
+
+	      <!-- Calcular Quadrado -->
+        <div class="col-md-8 order-md-1" id="area_quadrado">
+          <h4 class="mb-3">Dados do Quadrado</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="lado_quadrado">Lado</label>
+                <input type="number" class="form-control" id="lado_quadrado" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_quadrado">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_quadrado" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/quadradocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_quadrado"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_quadrado()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Retangulo -->
+        <div class="col-md-8 order-md-1" id="area_retangulo">
+          <h4 class="mb-3">Dados do Retângulo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="altura_retangulo">Altura</label>
+                <input type="number" class="form-control" id="altura_retangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="lado_retangulo">Lado</label>
+                <input type="number" class="form-control" id="lado_retangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_retangulo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_retangulo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/retangulocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_retangulo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_retangulo()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Circulo -->
+        <div class="col-md-8 order-md-1" id="area_circulo">
+          <h4 class="mb-3">Dados do Círculo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="altura_retangulo">Raio</label>
+                <input type="number" class="form-control" id="raio_circulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="pi_circulo">Val. ≅ de π</label>
+                <input type="number" class="form-control" id="pi_circulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_circulo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_circulo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/circulocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_circulo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_circulo()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Triangulo -->
+        <div class="col-md-8 order-md-1" id="area_triangulo">
+          <h4 class="mb-3">Dados do Triângulo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="altura_triangulo">Altura</label>
+                <input type="number" class="form-control" id="altura_triangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="lado_triangulo">Lado</label>
+                <input type="number" class="form-control" id="lado_triangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="tipo_triangulo">Tipo</label>
+                <select class="custom-select d-block w-100" id="tipo_triangulo" required>
+                  <option value="reto">Reto</option>
+                  <option value="equilatero">Equilátero</option>
+                </select>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_triangulo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_triangulo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/triangulocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_triangulo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_triangulo()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Losangulo -->
+        <div class="col-md-8 order-md-1" id="area_losangulo">
+          <h4 class="mb-3">Dados do Losângulo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="compmaior_losangulo">Comp. Diag. Maior</label>
+                <input type="number" class="form-control" id="compmaior_losangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="compmenor_losangulo">Comp. Diag. Menor</label>
+                <input type="number" class="form-control" id="compmenor_losangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="lado_losangulo">Lado</label>
+                <input type="number" class="form-control" id="lado_losangulo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_losangulo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_losangulo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/losangulocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_losangulo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_losangulo()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Poligono -->
+        <div class="col-md-8 order-md-1" id="area_poligono">
+          <h4 class="mb-3">Dados do Polígono</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="lado_poligono">Lado</label>
+                <input type="number" class="form-control" id="lado_poligono" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="qtlado_poligono">Quant. Lados</label>
+                <input type="number" class="form-control" id="qtlado_poligono" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_poligono">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_poligono" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/poligonocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_poligono"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_poligono()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Paralelogramo -->
+        <div class="col-md-8 order-md-1" id="area_paralelogramo">
+          <h4 class="mb-3">Dados do Paralelogramo</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="ladomaior_paralelogramo">Lado Maior</label>
+                <input type="number" class="form-control" id="ladomaior_paralelogramo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="ladomenor_paralelogramo">Lado Menor</label>
+                <input type="number" class="form-control" id="ladomenor_paralelogramo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="altura_paralelogramo">Altura</label>
+                <input type="number" class="form-control" id="altura_paralelogramo" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_paralelogramo">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_paralelogramo" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/paralelogramocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_paralelogramo"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_paralelogramo()">Calcular</label>
+          </form>
+        </div>
+
+        <!-- Calcular Trapesio -->
+        <div class="col-md-8 order-md-1" id="area_trapezio">
+          <h4 class="mb-3">Dados do Trapézio</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="basemaior_trapezio">Base Maior</label>
+                <input type="number" class="form-control" id="basemaior_trapezio" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="basemenor_trapezio">Base Menor</label>
+                <input type="number" class="form-control" id="basemenor_trapezio" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="altura_trapezio">Altura</label>
+                <input type="number" class="form-control" id="altura_trapezio" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="ladomenor_trapezio">Lado Menor</label>
+                <input type="number" class="form-control" id="ladomenor_trapezio" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="ladomenor_trapezio">Lado Menor</label>
+                <input type="number" class="form-control" id="ladomenor_trapezio" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir.
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="unmedida_trapezio">Medida</label>
+                <select class="custom-select d-block w-100" id="unmedida_trapezio" required>
+                  <option value="Km">Quilômetros (Km)</option>
+                  <option value="M">Metros (M)</option>
+                  <option value="Cm">Centímetros (Cm)</option>
+                  <option value="mm">Milímetros (mm)</option>
+                </select>
+              </div>
+            </div>
+            
+            <img src='img_figuras/trapeziocal.png' whidth='200' height='200' class='img-cal-fig'>
+            <br>
+            
+            <label style="font-size: 25px;" id="resultado_trapezio"></label>
+            
+            <hr class="mb-4">
+            <label class="btn btn-primary btn-lg btn-block" onclick="Carea_trapezio()">Calcular</label>
+          </form>
+        </div>
+        
+      </div>
+      </div>
+  </center>
+
+<br><br>
+<footer class="bg-dark text-light">
+    <div class="container-fluid py-3" style="background-color: #344058;">
+      <div class="col-8">
+        <p style="color: #4CC3DD;">
+          Esse site foi criado com o intuito de facilitar os cálculos matemáticos diversos, é um projeto escolar individual com o objetivo de testar funções e comandos da Linguagem de Programação Java Script, sendo ele desenvolvido durante o 1° Semestre do curso de Desenvolvimento de Software Multiplataforma na Faculdade de Tecnologia de Franca Dr Thomaz Novelino.
+        </p>
+        <ul class="nav">
+          <li class="nav-link"><a href="https://www.linkedin.com/in/lu%C3%ADs-pedro-1652ba299?" title="Linkedin" style="color:white;"><i class="fab fa-linkedin fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://github.com/luis-pedro-dutra-carrocini" title="GitHub" style="color:white;"><i class="fab fa-github fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://wa.me/5516981150536" title="WhatsApp" style="color:white;"><i class="fab fa-whatsapp fa-3x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="text-center" style="background-color: #1E2533; padding: 20px;" >
+      &copy 2024 Copyright: <a href="#">Luís Pedro Dutra Carrocini</a>
+    </div>
+  </footer>
+  
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+ </body>
+</html>

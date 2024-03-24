@@ -1,0 +1,85 @@
+/* Ajustar tamanho das imagens ao passar por cima */
+.img_hover{
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    border: 2px solid black;
+    width: 30%;
+    height: 30%;
+    background-color: #1E90FF;
+ }
+ 
+ .img_hover:hover{
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+ }
+
+ body {
+    background-color: #FFFFFF;
+ }
+
+#nav_bar{
+    background-color: #37367A;
+ }
+
+ #informacao_index {
+    color: #212121;
+    width: 97%;
+    text-align: left;
+ }
+
+ .navbar{
+   background-color: #1E2533;
+   color: #c7d1e9;
+ }
+
+ .dropdown-menu{
+   background-color: #293346;
+ }
+
+ .dropdown-divider{
+   background-color: #c7d1e9;
+ }
+
+ body{
+   background-color: #6782C0;
+ }
+
+.body-calfig{
+   background-color: #6782C0;
+}
+
+ #a-menu{
+   color: #c7d1e9;
+ }
+
+ #a-menu-cbo{
+   color: #c7d1e9;
+ }
+
+ #a-menu-cbo:hover{
+   background-color: #303c52;
+ }
+
+ #btn-pes-menu{
+   border-color: #5884EB;
+   color: #5884EB;
+ }
+
+ #btn-pes-menu:hover{
+   background-color: #5884EB;
+   border-color: #5884EB;
+   color: white;
+ }
+
+ h1, h3, p{
+   color: #1E2533;
+ }
+
+ #logo_fm{
+  width: 150px;
+  height: 50px;
+ }
+
+.img-cal-fig{
+  border: 2px solid #6C757D;
+}

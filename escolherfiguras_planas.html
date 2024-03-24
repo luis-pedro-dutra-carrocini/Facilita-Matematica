@@ -5,16 +5,21 @@
   
   <!-- Importando o estilo do bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   
   <!-- Inserindo um icone na aba da página -->
-  <link rel="icon" href="img_figuras/icone_logo.png" type="image/png">
+  <link rel="icon" href="img_site/icone_calculadora-sf.png" type="image/png">
+
+  <!-- Incluindo arquivos CSS e JS-->
+  <link rel="stylesheet"  href="style.css">
+  <script src="script.js">window.onload = verfigvol_escolhida();</script>
  </head>
  
- <body bgcolor="cyan">
+ <body>
      
 <!-- Barra de navegação -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-   <a class="navbar-brand" href="#"><img src='img_figuras/icone_logo.png' width='45'>&nbsp;&nbsp;&nbsp;Facilita Metemática</a>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#" id='a-logo'><img id='logo_fm' src="img_site/logo_fm-sf.png"></a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
      <span class="navbar-toggler-icon"></span>
    </button>
@@ -22,55 +27,44 @@
    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-         <a class="nav-link" href="index.html">Home <span class="sr-only">(página atual)</span></a>
+         <a class="nav-link" href="index.html" id='a-menu'>Home <span class="sr-only">(página atual)</span></a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="#">Fórmulas Gerais</a>
+         <a class="nav-link" href="#" id='a-menu'>Fórmulas Gerais</a>
        </li>
        <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown-toggle" id='a-menu' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Calcular Figuras
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" href="escolherfiguras_volume.html">Figuras 3D</a>
+           <a class="dropdown-item" href="escolherfiguras_volume.html" id='a-menu-cbo'>Figuras 3D</a>
            <div class="dropdown-divider"></div>
-           <a class="dropdown-item" href="#">Outros Cálculos</a>
+           <a class="dropdown-item" href="#" id='a-menu-cbo'>Outros Cálculos</a>
          </div>
        </li>
+	<li class="nav-item">
+        <a class="nav-link disabled" href="#" id='a-menu'>Desenvolvedor</a>
+      </li>
      </ul>
    </div>
  </nav>
-
-<style>
-/* Ajustar tamanho das imagens ao passar por cima */
-.img_hover{
-   -webkit-transition: -webkit-transform .5s ease;
-   transition: transform .5s ease;
-   border: 2px solid black;
-}
-
-.img_hover:hover{
-   -webkit-transform: scale(1.05);
-   transform: scale(1.05);
-}
-</style>
-
   <br>
+
   <center>
   <div style="width:97%;">
   <h2 align="left">Calcular Figura Plana...</h2>
   <h4 align="left">Escolha a figura que deseja calcular:</h4><br>
   
-  <a href="calcular_figura.html?tipo_calculo=cubo"><img class="img_hover" src="img_figuras/quadrado.png" border="2" height="300" width="30%"></a>&nbsp;
-  <a href="calcular_figura.html?tipo_calculo=esfera"><img class="img_hover" src="img_figuras/retangulo.png" border="2" height="300" width="30%"></a>&nbsp;
-  <a href="calcular_figura.html?tipo_calculo=cilindro"><img class="img_hover" src="img_figuras/circulo.png" border="2" height="300" width="30%"></a><br><br>
+  <a href="calcular_figuras.html?tipo_calculo=quadrado"><img class="img_hover" src="img_figuras/quadrado.png"></a>&nbsp;
+  <a href="calcular_figuras.html?tipo_calculo=retangulo"><img class="img_hover" src="img_figuras/retangulo.png"></a>&nbsp;
+  <a href="calcular_figuras.html?tipo_calculo=circulo"><img class="img_hover" src="img_figuras/circulo.png"></a><br><br>
   
-  <a href="calcular_figura.html?tipo_calculo=cone"><img class="img_hover" src="img_figuras/triangulo.png" border="2" height="300" width="30%"></a>&nbsp;
-  <a href="calcular_figura.html?tipo_calculo=paralelepipedo"><img class="img_hover" src="img_figuras/losangulo.png" border="2" height="300" width="30%"></a>&nbsp;
-  <a href="calcular_figura.html?tipo_calculo=piramide"><img class="img_hover" src="img_figuras/poligono.png" border="2" height="300" width="30%"></a><br><br>
+  <a href="calcular_figuras.html?tipo_calculo=triangulo"><img class="img_hover" src="img_figuras/triangulo.png"></a>&nbsp;
+  <a href="calcular_figuras.html?tipo_calculo=losangulo"><img class="img_hover" src="img_figuras/losangulo.png"></a>&nbsp;
+  <a href="calcular_figuras.html?tipo_calculo=poligono"><img class="img_hover" src="img_figuras/poligono.png"></a><br><br>
   
-  <a href="calcular_figura.html?tipo_calculo=prisma"><img class="img_hover" src="img_figuras/paralelogramo.png" border="2" height="300" width="30%"></a>&nbsp;
-  <a href="calcular_figura.html?tipo_calculo=prisma"><img class="img_hover" src="img_figuras/trapesio.png" border="2" height="300" width="30%"></a>
+  <a href="calcular_figuras.html?tipo_calculo=paralelogramo"><img class="img_hover" src="img_figuras/paralelogramo.png"></a>&nbsp;
+  <a href="calcular_figuras.html?tipo_calculo=trapezio"><img class="img_hover" src="img_figuras/trapesio.png"></a>
   </div>
   </center>
   
@@ -79,5 +73,23 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <br><br>
- </body>
+<footer class="bg-dark text-light">
+    <div class="container-fluid py-3" style="background-color: #344058;">
+      <div class="col-8">
+        <p style="color: #4CC3DD;">
+          Esse site foi criado com o intuito de facilitar os cálculos matemáticos diversos, é um projeto escolar individual com o objetivo de testar funções e comandos da Linguagem de Programação Java Script, sendo ele desenvolvido durante o 1° Semestre do curso de Desenvolvimento de Software Multiplataforma na Faculdade de Tecnologia de Franca Dr Thomaz Novelino.
+        </p>
+        <ul class="nav">
+          <li class="nav-link"><a href="https://www.linkedin.com/in/lu%C3%ADs-pedro-1652ba299?" title="Linkedin" style="color:white;"><i class="fab fa-linkedin fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://github.com/luis-pedro-dutra-carrocini" title="GitHub" style="color:white;"><i class="fab fa-github fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://wa.me/5516981150536" title="WhatsApp" style="color:white;"><i class="fab fa-whatsapp fa-3x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="text-center" style="background-color: #1E2533; padding: 20px;" >
+      &copy 2024 Copyright: <a href="#">Luís Pedro Dutra Carrocini</a>
+    </div>
+  </footer>
+</body>
 </html>
