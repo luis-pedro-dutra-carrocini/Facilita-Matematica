@@ -18,7 +18,7 @@ O site ainda não está concluido, há muito ainda a acrescentar.
 <img src="/prints/print1.png">
 <img src="/prints/print2.png">
 <img src="/prints/print3.png">
-<img src="/prints/print3.png">
+<img src="/prints/print4.png">
 
 ## 🚀 Começando
 
