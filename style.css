@@ -1,3 +1,4 @@
+/* Imgens de figuras para escolher se vai calcular  */
 /* Ajustar tamanho das imagens ao passar por cima */
 .img_hover{
     -webkit-transition: -webkit-transform .5s ease;
@@ -8,34 +9,36 @@
     background-color: #1E90FF;
  }
  
+ /* Imgens de figuras para escolher se vai calcular  */
  .img_hover:hover{
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
  }
 
- body {
-    background-color: #FFFFFF;
- }
 
 #nav_bar{
     background-color: #37367A;
  }
 
+ /* Div na página index com informações do site */
  #informacao_index {
     color: #212121;
     width: 97%;
     text-align: left;
  }
 
+ /* Barra de navegação (Menu) */
  .navbar{
    background-color: #1E2533;
    color: #c7d1e9;
  }
 
+ /* Combobox no menu */
  .dropdown-menu{
    background-color: #293346;
  }
 
+ /* Dicisão do combobox no menu */
  .dropdown-divider{
    background-color: #c7d1e9;
  }
@@ -44,27 +47,28 @@
    background-color: #6782C0;
  }
 
-.body-calfig{
-   background-color: #6782C0;
-}
-
+/* Ancoras dentro do menu */
  #a-menu{
    color: #c7d1e9;
  }
 
+ /* Ancoras que estão dentro do combobox no menu */
  #a-menu-cbo{
    color: #c7d1e9;
  }
 
+ /* Ancoras que estão dentro do combobox no menu */
  #a-menu-cbo:hover{
    background-color: #303c52;
  }
 
+ /* Botão de pesquisar no menu */
  #btn-pes-menu{
    border-color: #5884EB;
    color: #5884EB;
  }
 
+ /* Botão de pesquisar no menu */
  #btn-pes-menu:hover{
    background-color: #5884EB;
    border-color: #5884EB;
@@ -75,11 +79,13 @@
    color: #1E2533;
  }
 
+ /* Logo que aparece no menu da página */
  #logo_fm{
   width: 150px;
   height: 50px;
  }
 
+ /* Imagens que aparecem no calcular dados da figura */
 .img-cal-fig{
   border: 2px solid #6C757D;
 }
