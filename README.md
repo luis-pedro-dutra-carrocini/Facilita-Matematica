@@ -10,7 +10,7 @@ Cálculo de figuras:
 
 O site ainda não está concluido, há muito ainda a acrescentar.
 
-## 🚀 [Link do Site](https://luis-pedro-dutra-carrocini.github.io/Facilita-Matematica/index.html)
+## 🚀 [Link do Site](https://luis-pedro-dutra-carrocini.github.io/Facilita-Matematica/)
 
 
 ## 📦 Aparência
