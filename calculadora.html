@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora</title>
+
+    <!-- Importando o estilo do bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- Inserindo um icone na aba da página -->
+    <link rel="icon" href="img_site/icone_calculadora-sf.png" type="image/png">
+
+    <!-- Incluindo arquivos CSS e JS-->
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet" href="css/calculadora.css">
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#" id='a-logo'><img id='logo_fm' src="img_site/logo_fm-sf.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon" style="color: #c7d1e9;"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="calculadora.html" id='a-menu'>Home <span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" id='a-menu' href="#">Calculadora</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id='a-menu' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Calcular Figuras
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="escolherfiguras_volume.html" id='a-menu-cbo'>Figuras 3D</a>
+                <a class="dropdown-item" href="escolherfiguras_planas.html" id='a-menu-cbo'>Figuras Planas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" id='a-menu-cbo'>Fórmulas</a>
+            </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link disabled" href="#" id='a-menu'>Desenvolvedor</a>
+            </li>
+        </ul>
+        </div>
+    </nav><br>
+
+    <center>
+    <div id="app" align="center" width="300">
+        <div class="calculadora">
+            <div class="display">
+                {{ display }}
+            </div>
+            <div class="linha">
+                <button class="operador" @click="">C</button>
+            </div>
+            <div class="linha">
+                <button @click="">7</button>
+                <button @click="">8</button>
+                <button @click="">9</button>
+                <button class="operador" @click="">÷</button>
+            </div>
+            <div class="linha">
+                <button @click="">4</button>
+                <button @click="">5</button>
+                <button @click="">6</button>
+                <button class="operador" @click="">X</button>
+            </div>
+            <div class="linha">
+                <button @click="">1</button>
+                <button @click="">2</button>
+                <button @click="">3</button>
+                <button class="operador" @click="">-</button>
+            </div>
+            <div class="linha">
+                <button @click="">.</button>
+                <button @click="">0</button>
+                <button class="igual" @click="">=</button>
+                <button class="operador" @click="">+</button>
+            </div>
+        </div>
+    </div>
+    </center>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <br>
+    <footer class="bg-dark text-light">
+        <div class="container-fluid py-3" style="background-color: #344058;">
+        <div class="col-8" style="width: 100%;">
+            <p style="color: #4CC3DD; width: 100%;">
+            Esse site foi criado com o intuito de facilitar os cálculos matemáticos diversos, é um projeto escolar individual com o objetivo de testar funções e comandos da Linguagem de Programação Java Script, sendo ele desenvolvido durante o 1° Semestre do curso de Desenvolvimento de Software Multiplataforma na Faculdade de Tecnologia de Franca Dr Thomaz Novelino.
+            </p><br>
+            <ul class="nav">
+            <li class="nav-link"><a href="https://www.linkedin.com/in/lu%C3%ADs-pedro-1652ba299?" title="Linkedin" style="color:white;"><i class="fab fa-linkedin fa-3x"></i></a></li>
+            <li class="nav-link"><a href="https://github.com/luis-pedro-dutra-carrocini" title="GitHub" style="color:white;"><i class="fab fa-github fa-3x"></i></a></li>
+            <li class="nav-link"><a href="https://wa.me/5516981150536" title="WhatsApp" style="color:white;"><i class="fab fa-whatsapp fa-3x"></i></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="text-center" style="background-color: #1E2533; padding: 20px;" >
+        &copy 2024 Copyright: <a href="#">Luís Pedro Dutra Carrocini</a>
+        </div>
+  </footer>
+</body>
+</html>
+
+<script src="index.js"></script>
