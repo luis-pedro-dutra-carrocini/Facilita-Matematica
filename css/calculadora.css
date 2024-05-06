@@ -3,50 +3,53 @@
 }
 
 .calculadora {
-    width: 150px;
-    background-color: #373276;
+    width: 250px;
+    background-color: #3E1255;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
 }
 
 button {
-    width: 35px;
-    height: 35px;
+    width: 55px;
+    height: 55px;
     border: none;
     margin: 2px;
     border-radius: 5px;
-    background-color: #595494;
+    background-color: #D4D46A;
+    font-size: 25px;
 }
 
 button:hover{
-    background-color: #4D658D;
+    background-color: #a3a352;
 }
 
 .operador {
-    background-color: #827FB2;
+    background-color: #AAAA39;
     text-align: center;
 }
 
 .operador:hover {
-    background-color: #9476AB;
+    background-color: #797928;
 }
 
 .igual {
-    background-color: #7B84AE;
+    background-color: #808015;
     text-align: center;
 }
 
 .igual:hover {
-    background-color: #515E91;
+    background-color: #5a5a0e;
 }
 .display {
     display: flex;
-    background-color: white;
-    height: 35px;
+    background-color: #FFFBAA;
+    height: 55px;
     justify-content: end;
     align-items: center;
     padding-right: 5px;
     border-radius:  5px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 button:active {

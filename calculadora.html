@@ -17,6 +17,7 @@
     <!-- Incluindo arquivos CSS e JS-->
     <link rel="stylesheet"  href="css/style.css">
     <link rel="stylesheet" href="css/calculadora.css">
+    <script src="js/calculadora.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-            <a class="nav-link" href="calculadora.html" id='a-menu'>Home <span class="sr-only">(página atual)</span></a>
+            <a class="nav-link" href="index.html" id='a-menu'>Home <span class="sr-only">(página atual)</span></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" id='a-menu' href="#">Calculadora</a>
@@ -56,35 +57,36 @@
     <center>
     <div id="app" align="center" width="300">
         <div class="calculadora">
-            <div class="display">
-                {{ display }}
+            <div class="display" id="display" > </div>
+            <div class="linha">
+                <button class="operador" onclick="limpar()">C</button>
+                <button class="operador" onclick="raiz()">²√x</button>
+                <button class="operador" onclick="potencia()">x²</button>
+                <button class="operador" onclick="voltar()">⌫</button>
             </div>
             <div class="linha">
-                <button class="operador" @click="">C</button>
+                <button onclick="inserir('7')">7</button>
+                <button onclick="inserir('8')">8</button>
+                <button onclick="inserir('9')">9</button>
+                <button class="operador" onclick="inserir('/')">÷</button>
             </div>
             <div class="linha">
-                <button @click="">7</button>
-                <button @click="">8</button>
-                <button @click="">9</button>
-                <button class="operador" @click="">÷</button>
+                <button onclick="inserir('4')">4</button>
+                <button onclick="inserir('5')">5</button>
+                <button onclick="inserir('6')">6</button>
+                <button class="operador" onclick="inserir('*')">x</button>
             </div>
             <div class="linha">
-                <button @click="">4</button>
-                <button @click="">5</button>
-                <button @click="">6</button>
-                <button class="operador" @click="">X</button>
+                <button onclick="inserir('1')">1</button>
+                <button onclick="inserir('2')">2</button>
+                <button onclick="inserir('3')">3</button>
+                <button class="operador" onclick="inserir('-')">-</button>
             </div>
             <div class="linha">
-                <button @click="">1</button>
-                <button @click="">2</button>
-                <button @click="">3</button>
-                <button class="operador" @click="">-</button>
-            </div>
-            <div class="linha">
-                <button @click="">.</button>
-                <button @click="">0</button>
-                <button class="igual" @click="">=</button>
-                <button class="operador" @click="">+</button>
+                <button onclick="inserir('.')">,</button>
+                <button onclick="inserir('0')">0</button>
+                <button class="igual" onclick="calcular()">=</button>
+                <button class="operador" onclick="inserir('+')">+</button>
             </div>
         </div>
     </div>

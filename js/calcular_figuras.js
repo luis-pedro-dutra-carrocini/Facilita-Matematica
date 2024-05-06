@@ -89,10 +89,9 @@ function verfigvol_escolhida() { var urlAtual = window.location.href;
       }else if (tipo_triangulo === "isosceles"){
         document.getElementById('triangulo_lado2').style.display = "block";
         document.getElementById('triangulo_lado3').style.display = "none";
-        document.getElementById('triangulo_altura').style.display = "block";
-        document.getElementById('lbl_lado1triangulo').innerHTML = "Lado 1";
-        document.getElementById('lbl_lado2triangulo').innerHTML = "Lado 2 e 3";
-        document.getElementById('lbl_lado1triangulo').innerHTML = "Base";
+        document.getElementById('triangulo_altura').style.display = "none";
+        document.getElementById('lbl_lado1triangulo').innerHTML = "Lado 1 (Base)";
+        document.getElementById('lbl_lado2triangulo').innerHTML = "Lado 2 e 3 (Lateral)";
         document.getElementById('p_observacaotriangulo').innerHTML = "Um triângulo isósceles é um triângulo que possui dois lados de mesma medida.";
       }else if (tipo_triangulo === "escaleno"){
         document.getElementById('triangulo_lado2').style.display = "block";
@@ -370,7 +369,6 @@ function verfigvol_escolhida() { var urlAtual = window.location.href;
     }
 
     function Carea_triangulo (){
-      var altura = parseFloat(document.getElementById('altura_triangulo').value);
       var lado1 = parseFloat(document.getElementById('lado1_triangulo').value);
       var lado2 = parseFloat(document.getElementById('lado2_triangulo').value);
       var lado3 = parseFloat(document.getElementById('lado3_triangulo').value);
@@ -378,15 +376,18 @@ function verfigvol_escolhida() { var urlAtual = window.location.href;
       var unmedida = document.getElementById('unmedida_triangulo').value;
 
       if (tipo === "retangulo"){
+        var altura = parseFloat(document.getElementById('altura_triangulo').value);
         area_bruta = (lado1 * altura)/2;
         perimetro_bruto = lado1 + altura + Math.sqrt((lado1*lado1) + (altura*altura));
       }else if (tipo === "equilatero"){
         area_bruta = ((lado1*lado1)*Math.sqrt(3))/4;
         perimetro_bruto = lado1*3;
       }else if (tipo === "isosceles"){
+        altura = Math.sqrt((lado2*lado2)-(lado1/2)*(lado1/2));
         area_bruta = (lado1*altura)/2;
         perimetro_bruto = lado1 + (lado2*2);
       }else if (tipo === "escaleno"){
+        var altura = parseFloat(document.getElementById('altura_triangulo').value);
         area_bruta = (lado1*altura)/2;
         perimetro_bruto = lado1 + lado2 + lado3;
       }
