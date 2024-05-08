@@ -41,14 +41,14 @@ function calcular(){
 
 function raiz(){
     if (resultado){
-        document.getElementById('display').innerHTML = Math.sqrt(eval(resultado));
+        document.getElementById('display').innerHTML = Math.sqrt(eval(resultado)).toString().replace('.', ',');
         resultado = Math.sqrt(eval(resultado));
     }
 }
 
 function potencia(){
     if (resultado){
-        document.getElementById('display').innerHTML = eval(resultado)**2;
+        document.getElementById('display').innerHTML = (eval(resultado)**2).toString().replace('.', ',');
         resultado = eval(resultado)**2;
     }
 }

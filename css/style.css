@@ -89,3 +89,23 @@
 .img-cal-fig{
   border: 2px solid #6C757D;
 }
+
+.formulas-figuras{
+  display: inline-block; 
+  width: 48%; 
+  background-color: rgb(142, 164, 238);
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+}
+
+.formulas-figuras img{
+  border: 2px solid black;
+}
+
+@media (max-width: 610px){
+  .formulas-figuras{
+    width: 98%; 
+    margin-bottom: 15px;
+  }
+}
