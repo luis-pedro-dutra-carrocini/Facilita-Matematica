@@ -92,7 +92,7 @@
 
 .formulas-figuras{
   display: inline-block; 
-  width: 48%; 
+  width: 33%; 
   background-color: rgb(142, 164, 238);
   border-radius: 5px;
   padding: 10px;
@@ -103,7 +103,14 @@
   border: 2px solid black;
 }
 
-@media (max-width: 610px){
+@media (max-width: 875px){
+  .formulas-figuras{
+    width: 48%; 
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 500px){
   .formulas-figuras{
     width: 98%; 
     margin-bottom: 15px;
