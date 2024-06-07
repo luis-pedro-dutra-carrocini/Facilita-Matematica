@@ -13,11 +13,12 @@
   <!-- Inserindo um icone na aba da página -->
   <link rel="icon" href="img_site/icone_calculadora-sf.png" type="image/png">
 
-  <!-- Incluindo arquivo CSS -->
+  <!-- Incluindo arquivo CSS e JS-->
   <link rel="stylesheet"  href="css/style.css">
+  <script src="js/converter_medidas.js"></script>
  </head>
  
- <body>
+ <body onload="verf_calculo()">
      
 <!-- Barra de navegação -->
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -29,7 +30,7 @@
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#" id='a-menu'>Home</a>
+        <a class="nav-link" href="index.html" id='a-menu'>Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id='a-menu' href="calculadora.html">Calculadora</a>
@@ -59,7 +60,7 @@
 <center>
     <div class="container" style='background-color: #FFFAFA; border-radius: 15px;'>
           <div class="py-5 text-center">
-            <h2>Calcular Dados da Figura</h2>
+            <h2>Converter Unidades de Medidas</h2>
           </div>
     
           <div class="row">
@@ -76,54 +77,64 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cone"><font color="black">Força</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=forca"><font color="black">Força</font></a></h6>
                   </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cubo"><font color="black">Peso</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=peso"><font color="black">Peso</font></a></h6>
                   </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=esfera"><font color="black">Tamanho</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=tamanho"><font color="black">Tamanho</font></a></h6>
                   </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=paralelepipedo"><font color="black">Temperaturas</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=temperatura"><font color="black">Temperaturas</font></a></h6>
                   </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=piramide"><font color="black">Tempo</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=tempo"><font color="black">Tempo</font></a></h6>
                   </div>
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                   <div>
-                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=prisma"><font color="black">Velocidade</font></a></h6>
+                    <h6 class="my-0"><a href="converter_medidas.html?tipo_calculo=velocidade"><font color="black">Velocidade</font></a></h6>
                   </div>
                 </li>
               </ul>
             </div>
             
-            <!-- Calcular Cubo -->
-            <div class="col-md-8 order-md-1">
-              <h4 class="mb-3">Dados do Cubo</h4>
+            <!-- Converter Tamanho -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_tamanho">
+              <h4 class="mb-3">Coverter Medidas de Tamanho</h4>
               <form class="needs-validation" novalidate>
                 <div class="row" align='center'>
                   <div class="col-md-3 mb-3">
-                    <label for="lado_cubo">Lado</label>
-                    <input type="number" class="form-control" id="lado_cubo" placeholder="" value="" required>
+                    <label for="valor_tamanho">Valor</label>
+                    <input type="number" class="form-control" id="valor_tamanho" placeholder="" value="" required>
                     <div class="invalid-feedback">
                       É obrigatório inserir.
                     </div>
                   </div>
     
                   <div class="col-md-3 mb-3">
-                    <label for="unmedida_cubo">Medida</label>
-                    <select class="custom-select d-block w-100" id="unmedida_cubo" required>
+                    <label for="medidatamanho_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="medidatamanho_atual" required>
+                      <option value="Km">Quilômetros (Km)</option>
+                      <option value="M">Metros (M)</option>
+                      <option value="Cm">Centímetros (Cm)</option>
+                      <option value="mm">Milímetros (mm)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="medidatamanho_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="medidatamanho_nova" required>
                       <option value="Km">Quilômetros (Km)</option>
                       <option value="M">Metros (M)</option>
                       <option value="Cm">Centímetros (Cm)</option>
@@ -132,18 +143,250 @@
                   </div>
                 </div>
                 <br>
-                
-                <img src='img_figuras/cubocal.png' whidth='200' height='200' class='img-cal-fig'>
-                <label style="font-size: 20px;">L = Lado</label>
-                <br><br>
-                <label style="font-size: 20px;">Volume = L³ / Área = (L²)x6 / Perímetro = Lx12</label>
+    
+                <label style="font-size: 20px;" id="formula_tamanho"></label>
                 <br><br>
                 
                 <hr class="mb-4">
-                <label style="font-size: 25px;" id="resultado_cubo"></label>
+                <label style="font-size: 25px;" id="resultado_tamanho"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cubo()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tamanho()">Calcular</label>
+              </form>
+            </div>
+
+            <!-- Converter Força -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_forca">
+              <h4 class="mb-3">Coverter Medidas de Força</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="valor_tamnho">Valor</label>
+                    <input type="number" class="form-control" id="valor_tamnho" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="unmedida_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="unmedida_atual" required>
+                      <option value="Km">Quilômetros (Km)</option>
+                      <option value="M">Metros (M)</option>
+                      <option value="Cm">Centímetros (Cm)</option>
+                      <option value="mm">Milímetros (mm)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="unmedida_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="unmedida_nova" required>
+                      <option value="Km">Quilômetros (Km)</option>
+                      <option value="M">Metros (M)</option>
+                      <option value="Cm">Centímetros (Cm)</option>
+                      <option value="mm">Milímetros (mm)</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+    
+                <label style="font-size: 20px;" id="formula_forca"></label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_forca"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_forca()">Calcular</label>
+              </form>
+            </div>
+
+            <!-- Converter Peso -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_peso">
+              <h4 class="mb-3">Coverter Medidas de Peso</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="valor_peso">Valor</label>
+                    <input type="number" class="form-control" id="valor_peso" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="medidapeso_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="medidapeso_atual" required>
+                      <option value="T">Tonelada (T)</option>
+                      <option value="Kg">Quilôgrama (Kg)</option>
+                      <option value="g">Grama (g)</option>
+                      <option value="mg">Mligrama (mgm)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="medidapeso_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="medidapeso_nova" required>
+                      <option value="T">Tonelada (T)</option>
+                      <option value="Kg">Quilôgrama (Kg)</option>
+                      <option value="g">Grama (g)</option>
+                      <option value="mg">Mligrama (mgm)</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+    
+                <label style="font-size: 20px;" id="formula_peso"></label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_peso"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_peso()">Calcular</label>
+              </form>
+            </div>
+
+
+            <!-- Converter Temperatura -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_temperatura">
+              <h4 class="mb-3">Coverter Medidas de Temperatura</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="valor_temperatura">Valor</label>
+                    <input type="number" class="form-control" id="valor_temperatura" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="medidatemperatura_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="medidatemperatura_atual" required>
+                      <option value="K">Kenvin (K)</option>
+                      <option value="C">Celsius (C)</option>
+                      <option value="F">Fahrenheit (F)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="medidatemperatura_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="medidatemperatura_nova" required>
+                      <option value="K">Kenvin (K)</option>
+                      <option value="C">Celsius (C)</option>
+                      <option value="F">Fahrenheit (F)</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+    
+                <label style="font-size: 20px;" id="formula_temperatura"></label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_temperatura"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_temperatura()">Calcular</label>
+              </form>
+            </div>
+
+
+            <!-- Converter Tempo -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_tempo">
+              <h4 class="mb-3">Coverter Medidas de Tempo</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="valor_tempo">Valor</label>
+                    <input type="number" class="form-control" id="valor_tempo" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="medidatempo_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="medidatempo_atual" required>
+                      <option value="Ano">Ano</option>
+                      <option value="Mês">Mês</option>
+                      <option value="Semana">Semana</option>
+                      <option value="Dia">Dia</option>
+                      <option value="Hora">Hora</option>
+                      <option value="Minuto">Minuto</option>
+                      <option value="Segundo">Segundo</option>
+                      <option value="Milisegundo">Milisegundo</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="medidatempo_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="medidatempo_nova" required>
+                      <option value="Ano">Ano</option>
+                      <option value="Mês">Mês</option>
+                      <option value="Semana">Semana</option>
+                      <option value="Dia">Dia</option>
+                      <option value="Hora">Hora</option>
+                      <option value="Minuto">Minuto</option>
+                      <option value="Segundo">Segundo</option>
+                      <option value="Milisegundo">Milisegundo</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+    
+                <label style="font-size: 20px;" id="formula_tempo"></label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_tempo"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tempo()">Calcular</label>
+              </form>
+            </div>
+
+
+            <!-- Converter Velocidade -->
+            <div class="col-md-8 order-md-1" style="display: none;" id="div_velocidade">
+              <h4 class="mb-3">Coverter Medidas de Velocidade</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="valor_velocidade">Valor</label>
+                    <input type="number" class="form-control" id="valor_velocidade" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="medidavelocidade_atual">Atual</label>
+                    <select class="custom-select d-block w-100" id="medidavelocidade_atual" required>
+                      <option value="Ano">Quilômetros	por Hora (Km/h)</option>
+                      <option value="Mês">Mestros por Segundo (M/s)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="medidavelocidade_nova">Nova</label>
+                    <select class="custom-select d-block w-100" id="medidavelocidade_nova" required>
+                      <option value="Ano">Quilômetros	por Hora (Km/h)</option>
+                      <option value="Mês">Mestros por Segundo (M/s)</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+    
+                <label style="font-size: 20px;" id="formula_velocidade"></label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_velocidade"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_velocidade()">Calcular</label>
               </form>
             </div>
 </div>
