@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilita Matemática</title>
+  
+  <!-- Importando o estilo do bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+  <!-- Inserindo um icone na aba da página -->
+  <link rel="icon" href="img_site/icone_calculadora-sf.png" type="image/png">
+
+  <!-- Incluindo arquivo CSS -->
+  <link rel="stylesheet"  href="css/style.css">
+ </head>
+ 
+ <body>
+     
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#" id='a-logo'><img id='logo_fm' src="img_site/logo_fm-sf.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon" style="color: #c7d1e9;"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" id='a-menu'>Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id='a-menu' href="calculadora.html">Calculadora</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id='a-menu' href="#">Converter Medidas</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id='a-menu' href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Calcular Figuras
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="escolherfiguras_volume.html" id='a-menu-cbo'>Figuras 3D</a>
+          <a class="dropdown-item" href="escolherfiguras_planas.html" id='a-menu-cbo'>Figuras Planas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="formulasfiguras.html" id='a-menu-cbo'>Fórmulas</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" id='a-menu'>Desenvolvedor</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
+<br>
+<center>
+    <div class="container" style='background-color: #FFFAFA; border-radius: 15px;'>
+          <div class="py-5 text-center">
+            <h2>Calcular Dados da Figura</h2>
+          </div>
+    
+          <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Outras opções</span>
+                <span class="badge badge-secondary badge-pill">6</span>
+              </h4>
+              <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed" style="background-color: #6C757D;">
+                  <div style='align-items: center; width: 100%;'>
+                    <h6 class="my-0"><font color="white">Tipos de Conversão</font></h6>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cone"><font color="black">Força</font></a></h6>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=cubo"><font color="black">Peso</font></a></h6>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=esfera"><font color="black">Tamanho</font></a></h6>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=paralelepipedo"><font color="black">Temperaturas</font></a></h6>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=piramide"><font color="black">Tempo</font></a></h6>
+                  </div>
+                </li>
+                
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0"><a href="calcular_figuras.html?tipo_calculo=prisma"><font color="black">Velocidade</font></a></h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Calcular Cubo -->
+            <div class="col-md-8 order-md-1">
+              <h4 class="mb-3">Dados do Cubo</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row" align='center'>
+                  <div class="col-md-3 mb-3">
+                    <label for="lado_cubo">Lado</label>
+                    <input type="number" class="form-control" id="lado_cubo" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      É obrigatório inserir.
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <label for="unmedida_cubo">Medida</label>
+                    <select class="custom-select d-block w-100" id="unmedida_cubo" required>
+                      <option value="Km">Quilômetros (Km)</option>
+                      <option value="M">Metros (M)</option>
+                      <option value="Cm">Centímetros (Cm)</option>
+                      <option value="mm">Milímetros (mm)</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                
+                <img src='img_figuras/cubocal.png' whidth='200' height='200' class='img-cal-fig'>
+                <label style="font-size: 20px;">L = Lado</label>
+                <br><br>
+                <label style="font-size: 20px;">Volume = L³ / Área = (L²)x6 / Perímetro = Lx12</label>
+                <br><br>
+                
+                <hr class="mb-4">
+                <label style="font-size: 25px;" id="resultado_cubo"></label>
+                <hr class="mb-4">
+                
+                <label class="btn btn-primary btn-lg btn-block" onclick="Cvolume_cubo()">Calcular</label>
+              </form>
+            </div>
+</div>
+</div>
+</center>
+  
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<br><br>
+<footer class="bg-dark text-light">
+    <div class="container-fluid py-3" style="background-color: #344058;">
+      <div class="col-8" style="width: 100%;">
+        <p style="color: #4CC3DD; width: 100%;">
+          Esse site foi criado com o intuito de facilitar os cálculos matemáticos diversos, é um projeto escolar individual com o objetivo de testar funções e comandos da Linguagem de Programação Java Script, sendo ele desenvolvido durante o 1° Semestre do curso de Desenvolvimento de Software Multiplataforma na Faculdade de Tecnologia de Franca Dr Thomaz Novelino.
+        </p><br>
+        <ul class="nav">
+          <li class="nav-link"><a href="https://www.linkedin.com/in/lu%C3%ADs-pedro-1652ba299?" title="Linkedin" style="color:white;" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://github.com/luis-pedro-dutra-carrocini" title="GitHub" style="color:white;" target="_blank"><i class="fab fa-github fa-3x"></i></a></li>
+          <li class="nav-link"><a href="https://wa.me/5516981150536" title="WhatsApp" style="color:white;" target="_blank"><i class="fab fa-whatsapp fa-3x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center" style="background-color: #1E2533; padding: 20px;" >
+      &copy 2024 Copyright: <a href="#">Luís Pedro Dutra Carrocini</a>
+    </div>
+  </footer>
+</body>
+</html>
