@@ -124,7 +124,7 @@
     
                   <div class="col-md-3 mb-3">
                     <label for="medidatamanho_atual">Atual</label>
-                    <select class="custom-select d-block w-100" id="medidatamanho_atual" required>
+                    <select class="custom-select d-block w-100" id="medidatamanho_atual" required onchange="formula_tamanho()">
                       <option value="Km">Quilômetros (Km)</option>
                       <option value="M">Metros (M)</option>
                       <option value="Cm">Centímetros (Cm)</option>
@@ -134,7 +134,7 @@
 
                   <div class="col-md-3 mb-3">
                     <label for="medidatamanho_nova">Nova</label>
-                    <select class="custom-select d-block w-100" id="medidatamanho_nova" required>
+                    <select class="custom-select d-block w-100" id="medidatamanho_nova" required onchange="formula_tamanho()">
                       <option value="Km">Quilômetros (Km)</option>
                       <option value="M">Metros (M)</option>
                       <option value="Cm">Centímetros (Cm)</option>
@@ -144,14 +144,14 @@
                 </div>
                 <br>
     
-                <label style="font-size: 20px;" id="formula_tamanho"></label>
+                <label style="font-size: 20px;" id="formula_tamanho">Km = Km</label>
                 <br><br>
                 
                 <hr class="mb-4">
                 <label style="font-size: 25px;" id="resultado_tamanho"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tamanho()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tamanho()">Converter</label>
               </form>
             </div>
 
@@ -197,7 +197,7 @@
                 <label style="font-size: 25px;" id="resultado_forca"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_forca()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_forca()">Converter</label>
               </form>
             </div>
 
@@ -216,34 +216,34 @@
     
                   <div class="col-md-3 mb-3">
                     <label for="medidapeso_atual">Atual</label>
-                    <select class="custom-select d-block w-100" id="medidapeso_atual" required>
+                    <select class="custom-select d-block w-100" id="medidapeso_atual" required onchange="formula_peso()">
                       <option value="T">Tonelada (T)</option>
                       <option value="Kg">Quilôgrama (Kg)</option>
                       <option value="g">Grama (g)</option>
-                      <option value="mg">Mligrama (mgm)</option>
+                      <option value="mg">Mligrama (mg)</option>
                     </select>
                   </div>
 
                   <div class="col-md-3 mb-3">
                     <label for="medidapeso_nova">Nova</label>
-                    <select class="custom-select d-block w-100" id="medidapeso_nova" required>
+                    <select class="custom-select d-block w-100" id="medidapeso_nova" required onchange="formula_peso()">
                       <option value="T">Tonelada (T)</option>
                       <option value="Kg">Quilôgrama (Kg)</option>
                       <option value="g">Grama (g)</option>
-                      <option value="mg">Mligrama (mgm)</option>
+                      <option value="mg">Mligrama (mg)</option>
                     </select>
                   </div>
                 </div>
                 <br>
     
-                <label style="font-size: 20px;" id="formula_peso"></label>
+                <label style="font-size: 20px;" id="formula_peso">T = T</label>
                 <br><br>
                 
                 <hr class="mb-4">
                 <label style="font-size: 25px;" id="resultado_peso"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_peso()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_peso()">Converter</label>
               </form>
             </div>
 
@@ -263,7 +263,7 @@
     
                   <div class="col-md-3 mb-3">
                     <label for="medidatemperatura_atual">Atual</label>
-                    <select class="custom-select d-block w-100" id="medidatemperatura_atual" required>
+                    <select class="custom-select d-block w-100" id="medidatemperatura_atual" required onchange="formula_temperatura()">
                       <option value="K">Kenvin (K)</option>
                       <option value="C">Celsius (C)</option>
                       <option value="F">Fahrenheit (F)</option>
@@ -272,7 +272,7 @@
 
                   <div class="col-md-3 mb-3">
                     <label for="medidatemperatura_nova">Nova</label>
-                    <select class="custom-select d-block w-100" id="medidatemperatura_nova" required>
+                    <select class="custom-select d-block w-100" id="medidatemperatura_nova" required onchange="formula_temperatura()">
                       <option value="K">Kenvin (K)</option>
                       <option value="C">Celsius (C)</option>
                       <option value="F">Fahrenheit (F)</option>
@@ -281,14 +281,14 @@
                 </div>
                 <br>
     
-                <label style="font-size: 20px;" id="formula_temperatura"></label>
+                <label style="font-size: 20px;" id="formula_temperatura">K = K</label>
                 <br><br>
                 
                 <hr class="mb-4">
                 <label style="font-size: 25px;" id="resultado_temperatura"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_temperatura()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_temperatura()">Converter</label>
               </form>
             </div>
 
@@ -343,7 +343,7 @@
                 <label style="font-size: 25px;" id="resultado_tempo"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tempo()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_tempo()">Converter</label>
               </form>
             </div>
 
@@ -386,7 +386,7 @@
                 <label style="font-size: 25px;" id="resultado_velocidade"></label>
                 <hr class="mb-4">
                 
-                <label class="btn btn-primary btn-lg btn-block" onclick="converter_velocidade()">Calcular</label>
+                <label class="btn btn-primary btn-lg btn-block" onclick="converter_velocidade()">Converter</label>
               </form>
             </div>
 </div>
